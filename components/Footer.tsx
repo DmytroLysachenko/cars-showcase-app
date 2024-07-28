@@ -40,6 +40,13 @@ const Footer = () => {
           ))}
         </div>
       </div>
+      <div className="flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10">
+        <p>@2024 CarHub. All rights reserved</p>
+        <div className="footer__copyrights-link">
+          <Link href="/">Privacy policy</Link>
+          <Link href="/">Terms of use</Link>
+        </div>
+      </div>
     </footer>
   );
 };
