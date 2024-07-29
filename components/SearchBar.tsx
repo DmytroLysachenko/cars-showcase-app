@@ -25,17 +25,21 @@ const SearchBar = () => {
   const [model, setModel] = useState('');
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const router = useRouter();
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (manufacturer === '' && model === '') {
-      return alert('Please fill in search bar');
+      updateSearchParams(null, null);
+      return;
     }
-    updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
+    updateSearchParams(model?.toLowerCase(), manufacturer?.toLowerCase());
   };
 
-  const updateSearchParams = (model: string, manufacturer: string) => {
+  const updateSearchParams = (
+    model: string | null,
+    manufacturer: string | null
+  ) => {
     const params = new URLSearchParams(searchParams);
 
     if (model) {
@@ -48,8 +52,9 @@ const SearchBar = () => {
     } else {
       params.delete('manufacturer');
     }
+    params.set('limit', '10');
 
-    replace(`${pathname}?${params.toString()}`, { scroll: false });
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (

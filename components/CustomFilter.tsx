@@ -1,7 +1,6 @@
 'use client';
 
 import { CustomFilterProps } from '@/types';
-import { updateSearchParams } from '@/utils';
 import {
   Listbox,
   ListboxButton,
@@ -9,19 +8,28 @@ import {
   ListboxOptions,
   Transition,
 } from '@headlessui/react';
-import clsx from 'clsx';
+
 import Image from 'next/image';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Fragment, useState } from 'react';
 
 const CustomFilter = ({ title, options }: CustomFilterProps) => {
   const [selected, setSelected] = useState(options[0]);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
 
   const handleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathName = updateSearchParams(title, e.value.toLowerCase());
+    const params = new URLSearchParams(searchParams);
+    if (e.value) {
+      params.set(title, e.value.toLowerCase());
+    } else {
+      params.delete(title);
+    }
 
-    router.push(newPathName);
+    const newPathname = `${pathname}?${params.toString()}`;
+
+    router.push(newPathname, { scroll: false });
   };
 
   return (
