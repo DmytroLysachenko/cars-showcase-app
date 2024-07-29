@@ -1,3 +1,5 @@
+import { manufacturers, fuels } from './../constants/index';
+import { CarProps, ParamsProps } from '@/types';
 import axios from 'axios';
 
 const ninjasCarsAPI = axios.create({
@@ -5,10 +7,17 @@ const ninjasCarsAPI = axios.create({
   headers: { 'X-Api-Key': 'j+u2pAM/KQVYucnaLhZf9g==sn0mczpF7HMSVQQJ' },
 });
 
-export async function fetchCars(model: string, limit: number = 5) {
+export async function fetchCars(params: ParamsProps) {
   try {
+    const { manufacturer: make, year, model, limit, fuel: fuel_type } = params;
     const { data } = await ninjasCarsAPI.get('/cars', {
-      params: { model, limit },
+      params: {
+        make,
+        year,
+        model,
+        limit,
+        fuel_type,
+      },
     });
     return data;
   } catch (error: any) {
@@ -29,4 +38,29 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
   const rentalRatePerDay = basePricePerDay + mileageRate + ageRate;
 
   return rentalRatePerDay.toFixed(0);
+};
+
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+  const url = new URL('https://cdn.imagin.studio/getimage');
+
+  const { make, model, year } = car;
+
+  url.searchParams.append('customer', 'hrjavascript-mastery');
+  url.searchParams.append('make', make);
+  url.searchParams.append('modelFamily', model.split(' ')[0]);
+  url.searchParams.append('zoomType', 'fullscreen');
+  url.searchParams.append('modelYear', `${year}`);
+  url.searchParams.append('angle', `${angle}`);
+
+  return `${url}`;
+};
+
+export const updateSearchParams = (type: string, value: string) => {
+  const searchParams = new URLSearchParams(window.location.search);
+
+  searchParams.set(type, value);
+
+  const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
+
+  return newPathname;
 };

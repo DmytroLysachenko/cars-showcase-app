@@ -58,7 +58,10 @@ const SearchManufacturer = ({
               setQuery('');
             }}
           >
-            <ComboboxOptions>
+            <ComboboxOptions
+              className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-20"
+              static
+            >
               {filteredManufacturers.length === 0 && query !== '' ? (
                 <ComboboxOption
                   value={query}
@@ -71,22 +74,30 @@ const SearchManufacturer = ({
                   <ComboboxOption
                     key={item}
                     className={
-                      'relative search-manufacturer__option  text-gray-900'
+                      'relative search-manufacturer__option  text-gray-900 data-[active]:bg-primary-blue data-[active]:text-white'
                     }
                     value={item}
                   >
-                    {({ focus, selected }) => (
-                      <div
-                        className={clsx(
-                          'relative search-manufacturer__option flex gap-5',
-                          focus && 'text-white bg-primary-blue'
-                        )}
-                      >
-                        {selected && (
-                          <FaCheck className="size-5 absolute left-2 top-1/2 -translate-y-1/2" />
-                        )}
-                        {item}
-                      </div>
+                    {({ selected, active }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
+                          {item}
+                        </span>
+
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active
+                                ? 'text-white'
+                                : 'text-pribg-primary-purple'
+                            }`}
+                          ></span>
+                        ) : null}
+                      </>
                     )}
                   </ComboboxOption>
                 ))

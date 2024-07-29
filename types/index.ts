@@ -1,3 +1,4 @@
+import { CustomFilter, ShowMore } from '@/components';
 import { manufacturers } from './../constants/index';
 import { MouseEventHandler } from 'react';
 
@@ -29,4 +30,27 @@ export interface CarProps {
   model: string;
   transmission: string;
   year: number;
+}
+
+export interface ParamsProps {
+  fuel: string;
+  manufacturer: string;
+  model: string;
+  year: number;
+  limit: number;
+}
+
+export interface OptionsProps {
+  title: string;
+  value: string;
+}
+
+export interface CustomFilterProps {
+  title: string;
+  options: OptionsProps[];
+}
+
+export interface ShowMoreProps {
+  pageNumber: number;
+  isNext: boolean;
 }
