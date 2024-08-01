@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Car Showcase Application
+
+Welcome to the Car Showcase Application! This web application allows users to browse and view details about various cars. Built with Next.js, it offers an intuitive and responsive interface for an optimal user experience, utilizing a public API for car data.
+
+## Features
+
+- **Browse Cars**: View a list of cars with their images and basic details.
+- **Car Details**: Click on a car to see more detailed information.
+- **Search**: Quickly find cars by make, model, or other criteria.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+
+## Tech Stack
+
+- **Frontend**: Next.js, Tailwind CSS, Headless UI
+- **Data Source**: Ninja API
+- **Deployment**: Vercel
+
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js and npm installed
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/car-showcase-app.git
+   cd car-showcase-app
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Lysachenko Dmytro - [https://github.com/DmytroLysachenko](https://github.com/DmytroLysachenko)
 
-## Deploy on Vercel
+Project Link: [https://github.com/DmytroLysachenko/cars-showcase-app](https://github.com/DmytroLysachenko/cars-showcase-app)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Acknowledgments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Ninja Car API](https://api-ninjas.com/api/cars)
