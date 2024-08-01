@@ -27,7 +27,7 @@ Welcome to the Car Showcase Application! This web application allows users to br
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/car-showcase-app.git
+   git clone https://github.com/DmytroLysachenko/cars-showcase-app.git
    cd car-showcase-app
    ```
 
