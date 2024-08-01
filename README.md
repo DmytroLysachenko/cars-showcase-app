@@ -44,9 +44,9 @@ Welcome to the Car Showcase Application! This web application allows users to br
 
 ## Contact
 
-Lysachenko Dmytro - [https://github.com/DmytroLysachenko](https://github.com/DmytroLysachenko)
+Lysachenko Dmytro - [Contact me](https://github.com/DmytroLysachenko)
 
-Project Link: [https://github.com/DmytroLysachenko/cars-showcase-app](https://github.com/DmytroLysachenko/cars-showcase-app)
+Project Link: [Link](https://github.com/DmytroLysachenko/cars-showcase-app)
 
 ## Acknowledgments
 
